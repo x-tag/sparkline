@@ -52,24 +52,24 @@
         this.height = this.height;
         this.width = this.width;
         this.points = this.points;
-        /*this.xtag.points = this.getAttribute('data-points').split(',').map(function(d){
-          return Number(d);
-        });
-        console.log('created')*/
       }
     },
     accessors: {
       'points': {
+        attribute: {},
         get: function(){
           return this.xtag.points ||
-              this.getAttribute('points').split(',').map(function(d){
-                return Number(d);
+              this.getAttribute('points')
+                .replace(/[\[\]]/g,"")
+                .split(',').map(function(d){
+                  return Number(d);
               }) || [];
         },
         set: function(value){
-          var data = this.xtag.points = value.split ? value.split(',').map(function(d){
-            return Number(d);
-          }) : value;
+          var data = this.xtag.points = value.split ?
+              value.split(',').map(function(d){
+              return Number(d);
+            }) : value;
           draw(this, this.points);
         }
       },
