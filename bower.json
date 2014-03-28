@@ -1,8 +1,9 @@
 {
-  "name": "x-sparkline",
-  "description": "",
+  "name": "Sparkline",
+  "description": "Displays a tiny graph of points",
   "version": "0.1.1",
   "keywords": [
+    "element",
     "web-components",
     "x-tag"
   ],
